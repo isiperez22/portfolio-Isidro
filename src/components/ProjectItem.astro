@@ -1,0 +1,64 @@
+---
+import Github from "./icons/Github.astro";
+import Javascript from "./icons/Javascript.astro";
+
+interface ProjectItemProps {
+  title: string;
+  description: string;
+  image: string;
+  tags: {
+    name: string;
+    class: string;
+    icon: (_props: Record<string, any>) => any;
+  }[];
+  link: string;
+}
+
+const { title, description, image, tags, link } =
+  Astro.props as ProjectItemProps;
+---
+
+<article
+  class="flex flex-col md:flex-row w-full bg-transparent rounded-2xl shadow py-4 space-y-3
+          hover:scale-105 transition-transform duration-300 ease-in-out"
+>
+  <div class="flex items-center md:w-1/2 h-max mx-5">
+    <img
+      class="w-full h-full object-center rounded-xl hover:object-cover"
+      src={image}
+      alt="imagen del proyecto"
+      loading="lazy"
+    />
+  </div>
+  <div class="flex flex-col md:w-1/2 space-y-4 mx-5">
+    <h3 class="text-2xl font-bold">{title}</h3>
+    <ul class="flex gap-2 flex-wrap">
+      {
+        tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs py-1 px-2 ${tag.class}`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mx-1">
+      {description}
+    </p>
+    <footer class="flex items-center gap-4">
+      <a
+        class="flex text-base text-[var(--dark-color) gap-2 px-2.5 py-1
+              border-[1px] rounded-full items-center
+              hover:bg-[var(--dark-color)]
+              hover:text-[var(--light-color)]
+              hover:scale-105 transition-all will-change-transform ease-in-out duration-200
+              dark:hover:bg-[var(--light-color)] dark:hover:text-[#0a0f13]"
+        href={link}><Github class="size-4" /> Ver codigo</a
+      >
+    </footer>
+  </div>
+</article>

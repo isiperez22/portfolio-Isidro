@@ -1,0 +1,10 @@
+<a class="flex text-[var(--dark-color) text-base gap-2 px-2.5 py-1
+          border-[1px] rounded-full items-center text-center
+          hover:bg-[var(--dark-color)]
+          hover:text-[var(--light-color)]
+          hover:scale-105 transition-all will-change-transform ease-in-out duration-500
+          dark:bg-transparent dark:hover:bg-[var(--light-color)] dark:hover:text-[var(--dark-color)]" 
+
+  href={Astro.props.href} target="_blank" rel="noopener noreferrer">
+  <slot/>
+</a>

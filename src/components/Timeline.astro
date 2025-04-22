@@ -1,0 +1,28 @@
+---
+import ExpItem from "./ExperienceItem.astro";
+
+const EXPERIENCES = [
+    {
+        position: "Desarrollador independiente",
+        date: "Actualmente",
+        description:
+            "Desarrollo paginas estaticas y dinamicas, utilizando tecnologias como Express, SpringBoot, React, TailwindCSS, NextJS o Astro, entre otras",
+    },
+    {
+        position: "Desarrollador Web",
+        company: "Grupo Konecta",
+        date: "2022",
+        description:
+            "Proporcionaba soporte a las aplicaciones internas de la empresa, desarrollando soluciones en PHP para el back-end y JavaScript para el front-end. Utilizaba APIs como jQuery y libreríascomo PHPExcel. Además, tambien me encargaba de la maquetación web utilizando el framework Bootstrap para garantizar una experiencia de usuario responsiva y de calidad.",
+    },
+];
+---
+<h2 class="text-3xl font-semibold mb-10">Experiencia</h2>
+
+<ol class="border-s border-neutral-300 dark:border-neutral-500">
+    {EXPERIENCES.map((experience) => (
+        <ExpItem
+            {...experience}
+        />
+    ))}
+</ol>

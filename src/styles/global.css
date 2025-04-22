@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-color: #1abc9c;
+  --dark-color: #2c3e50;
+  --light-color: #f2f4f4;
+  color-scheme: light dark;
+}
+
+html {
+  font-family: "Josefin Sans Variable", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #1abc9c;
+    --dark-color: #2c3e50;
+    --light-color: rgb(242, 244, 244);
+  }
+
+  html {
+    background: #0a0f13;
+    color: var(--light-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #1abc9c;
+    --dark-color: #2c3e50;
+    --light-color: rgb(242, 244, 244);
+  }
+
+  html {
+    background: var(--light-color);
+    color: var(--dark-color);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.seccion {
+  animation: appear 1s ease-in-out;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+#header-nav {
+  animation: blur linear both 0.5s;
+  animation-timeline: scroll();
+  animation-range: 0 500px;
+}

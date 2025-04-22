@@ -1,0 +1,55 @@
+---
+import NextJS from "./icons/NextJS.astro";
+import React from "./icons/React.astro";
+import SpringBoot from "./icons/SpringBoot.astro";
+import ProjectItem from "./ProjectItem.astro";
+import Tailwind from "./icons/Tailwind.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "NextJS",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+
+  SPRINGBOOT: {
+    name: "Springboot",
+    class: "bg-[#6DB33F] text-white",
+    icon: SpringBoot,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#58C4DC] text-white",
+    icon: React,
+  },
+  TAILWIND: {
+    name: "TailwindCSS",
+    class: "bg-blue-500  text-white",
+    icon: Tailwind,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Aplicacion de pedidos",
+    description:
+      "Aplicacion para la gestion de pedidos, el usuario hace un pedido y el restaurante lo recibe y lo procesa.",
+    image: "/mockup-app-pedidos.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    link: "https://github.com/isiperez22/Demo-App-Autoservico-restaurante",
+  },
+  {
+    title: "Gestor de contraseñas",
+    description:
+      "Aplicacion con un funcionamiento simple, el usuario puede guardar sus contraseñas y acceder a ellas de forma segura.",
+    image: "/mockup-gestor-passwords.webp",
+    tags: [TAGS.SPRINGBOOT, TAGS.REACT, TAGS.TAILWIND],
+    link: "https://github.com/isiperez22/gestor-de-contrasenias-frontend",
+  },
+];
+---
+<h2 class="text-3xl font-semibold mb-10">Proyectos personales</h2>
+
+<div class="space-y-8">
+  {PROJECTS.map((project) => <ProjectItem {...project} />)}
+</div>

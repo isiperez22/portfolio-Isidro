@@ -1,0 +1,19 @@
+---
+import ButtonHeader from "./ButtonHeader.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+---
+
+<header
+  class="fixed top-0 z-10 flex items-center text-[var(--dark-color)] dark:text-[var(--light-color)] justify-center w-full mx-auto my-2"
+>
+  <nav
+    class="flex px-3 text-sm  font-medium rounded-full justify-center items-center"
+  >
+    <ButtonHeader href="#about-me"> Sobre Mí </ButtonHeader>
+    <ButtonHeader href="#experience"> Experiencia </ButtonHeader>
+    <ButtonHeader href="#projects"> Proyectos </ButtonHeader>
+    <ButtonHeader href="mailto:isidroperezp@gmail.com"> Contacto </ButtonHeader>
+    <ThemeToggle />
+  </nav>
+</header>
